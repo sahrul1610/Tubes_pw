@@ -15,19 +15,19 @@
 
         // buku
         case 'buku':
-            include 'page/buku/list.php';
+            include 'page/admin/list.php';
             break;
         
         case 'tambah-buku':
-            include 'page/buku/tambah.php';
+            include 'page/admin/tambah.php';
             break;
 
         case 'edit-data':
-            include 'page/buku/edit_data.php';
+            include 'page/admin/edit_data.php';
             break;
 
             case 'edit-data':
-                include 'page/buku/edit_data.php';
+                include 'page/admin/edit_data.php';
                 break;
         // end
         //kategori
@@ -43,8 +43,8 @@
             include 'page/edit-kategori.php';
             break;
         
-        case 'customer':
-            include 'page/customer/customer.php';
+        case 'customer-admin':
+            include 'page/customer-admin/customer.php';
             break;
 
             // case 'logout':

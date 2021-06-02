@@ -1,12 +1,14 @@
-<?php include 'config/koneksi.php'; ?>
+<?php 
+include 'config/koneksi.php'; 
+?>
 <?php
 session_start();
 if (!isset($_SESSION['login'])){
     
-echo "<script>alert('logout dahulu');</script>";
+echo "<script>alert('login dahulu');</script>";
 echo "<script>window.location.replace('page/login/login.php');</script>";
 }
-$con = new mysqli("localhost", "root", "", "db_toko_sahrul");
+// $con = new mysqli("localhost", "root", "", "db_toko_sahrul");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -44,7 +46,7 @@ $con = new mysqli("localhost", "root", "", "db_toko_sahrul");
         <a href="?page=dashboard"><i class="fas fa-desktop"></i> <span>Home</span></a>
         <a href="?page=kategori"><i class="far fa-comment"></i> <span>Kategori</span></a>
         <a href="?page=buku"><i class="fas fa-newspaper"></i> <span>Buku</span></a>
-        <a href="?page=customer"><i class="fas fa-sliders-h"></i> <span>Customer</span></a>
+        <a href="?page=customer-admin"><i class="fas fa-sliders-h"></i> <span>Customer</span></a>
         <a href="#"><i class="fas fa-sliders-h"></i> <span>laporan</span></a>
         
     </div>
