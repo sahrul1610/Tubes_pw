@@ -6,7 +6,7 @@
 }
 body {
   height: 100vh;
-  background-image: url(background.jpg);
+  background-image: url(2.png);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -41,18 +41,4 @@ a {
   margin-bottom: 30px;
   text-transform: uppercase;
   border-bottom: 4px solid #752bea;
-}
-.container label {
-  text-align: left;
-  color: black;
-}
-.container form input {
-  width: 100%;
-  height: 40px;
-  padding: 5px 0;
-  border: none;
-  background-color: #752bea;
-  font-size: 18px;
-  color: #fafafa;
-  border-radius: 20px;
 }

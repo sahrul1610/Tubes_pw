@@ -34,28 +34,50 @@ require_once 'connection/koneksi.php';
     </div>
 
     <div class="gambar">
+    <table border="1" cellpadding="10" cellspacing="0" style="witdth:100%;">
+    
+    <thead style="background:#c0c0c0;">
+        <tr>
+            <th>No.</th>
+            <th>Buku</th>
+            <th>Harga</th>
+            <th>Jumlah</th>
+            <th>Aksi</th>
+        </tr>
+    </thead>
+    <tbody>
+        <?php $no = 0; ?>
+        <?php foreach ($_SESSION["keranjang"] as $id_buku => $jumlah): ?>
+            <?php
+				$ambil = $con_object->query("SELECT * FROM buku WHERE id_buku = '$id_buku'");
+				$yoyo = $ambil->fetch_assoc();
 
-        <?php
-        $sql = $con_object->query("SELECT * FROM buku");
-        $rows = $sql->num_rows;
-        if ($rows > 0) {
-            while ($data = mysqli_fetch_assoc($sql)) { ?>
-
-                <div class='foto'>
-                    <div style="width: 100%;height: 200px;background-image: url('<?php echo 'admin/pages/produk/gambar/' . $data['gambar']; ?>'); background-repeat: no-repeat;background-attachment: contain;background-position: center;background-size: contain;"></div>
-                    <h1><?php echo $data['judul']; ?></h1>
-                    <p>Harga <?php echo $data['harga']; ?></p>
-                    <a href='produk_detail.php?produk=<?= $data['id_buku']; ?>'>Detail</a>
-                    <a href="beli.php?id_buku=<?= $data['id_buku']; ?>"> Beli </a>
-                </div>
-
-        <?php
-            }
-        }
-        ?>
-
+				$subharga = $yoyo["harga"] * $jumlah;
+			?>
+            <tr>
+                <td><?php echo ++$no; ?></td>
+                <td><?php echo $yoyo['judul']; ?></td>
+                <td>Rp. <?php echo number_format($yoyo['harga']); ?></td>
+                <td><?php echo $jumlah; ?></td>
+                <td>
+                    <a href="hapusKeranjang.php?id_buku=<?php echo $id_buku ?>"> Hapus </a>
+                </td>
+            </tr>
+        <?php endforeach ?>
+    </tbody>
+    <tfoot>
+        <tr>
+            <td>
+                <a href="index.php">Lanjutkan Belanja</a>
+            </td>
+            <td>
+                <a href="checkout.php"> Checkout </a>
+            </td>
+        </tr>
+    </tfoot>
+</table>
 </div>
-        
+    <br>
     <footer class="footer-distributed">
 
       <div class="footer-left">
