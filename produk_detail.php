@@ -60,15 +60,15 @@ if (isset($_GET['produk'])) {
 </style>
 
 <body>
-    <div class='header'>
+<div class='header'>
         <h1 class="logo">toko Buku</h1>
         <ul class="navbar">
             <li><a href='index.php'>Home</a></li>
-            <li><a href=''>Keranjang</a></li>
+            <li><a href=''>keranjang</a></li>
             <li><a href=''>Kategori</a></li>
-            <li><a href=''>Cara belanja</a></li>
-            <li>
-                <?php
+            <li><a href=''>cara belanja</a></li>
+            <!-- <li>
+            <?php
                 if (isset($_SESSION['login'])) { ?>
                     <a href="logout.php"><?= $_SESSION['nama']; ?></a>
                 <?php
@@ -78,10 +78,9 @@ if (isset($_GET['produk'])) {
                 <?php
                 }
                 ?>
-            </li>
+            </li> -->
         </ul>
     </div>
-
     <div class="produk-detail">
         <div class="foto" style="width: 50%;height: 200px;background-image: url('<?php echo 'admin/pages/produk/gambar/' . $data['gambar']; ?>'); background-repeat: no-repeat;background-attachment: contain;background-position: center;background-size: contain;">
         </div>
@@ -124,22 +123,9 @@ if (isset($_GET['produk'])) {
 </body>
 
 <script>
-    // function addCart(id) {
-    //     var xhttp = new XMLHttpRequest()
-    //     const qty = document.getElementById('qty')
-    //     xhttp.onreadystatechange = function() {
-    //         if (this.readyState == 4 && this.status == 200) {
-    //             console.log('added')
-    //         }
-    //     };
-    //     xhttp.open("POST", "http://localhost/tubes_pw_new/ajax/add-cart.php", true);
-    //     xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    //     xhttp.send(`id=${id}&qty=${qty.value}`);
-    // }
-
     function buy(id) {
         const qty = document.getElementById('qty')
-        window.location.href = 'checkout.php?produk=' + id + '&qty=' + qty.value
+        window.location.href = 'pemesanan.php?produk=' + id + '&qty=' + qty.value
     }
 </script>
 

@@ -34,7 +34,7 @@ require_once 'connection/koneksi.php';
     </div>
 
     <div class="gambar">
-    <table border="1" cellpadding="10" cellspacing="0" style="witdth:100%;">
+    <table border="1" cellpadding="10" cellspacing="0" style="witdth:1200;">
     
     <thead style="background:#c0c0c0;">
         <tr>

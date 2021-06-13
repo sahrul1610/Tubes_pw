@@ -28,7 +28,7 @@ input[type="text"],input[type="number"] {
   font-family: sans-serif;
   font-weight: 400;
   font-size: 15px;
-}
+} 
 
 
 </style>

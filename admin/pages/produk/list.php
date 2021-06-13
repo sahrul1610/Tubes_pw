@@ -3,7 +3,7 @@
     <hr>
 
     <table border="1" cellpadding="10" cellspacing="0" width="115%" height="60%">
-        <thead style="background-color:	rgb(0, 255, 254)">
+        <thead style="background-color:#5F9EA0">
             <tr>
                 <th>No.</th>
                 <th>Judul</th>

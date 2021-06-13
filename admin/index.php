@@ -1,4 +1,5 @@
 <?php
+session_start();
 include '../connection/koneksi.php';
 
 if (!isset($_SESSION['login'])) {
@@ -7,7 +8,7 @@ if (!isset($_SESSION['login'])) {
 }
 
 if ($_SESSION['role'] != 1) {
-    echo "<script>window.location.href = '../index.php'</script>";
+    echo "<scripwt>window.location.href = '../index.php'</script>";
 }
 ?>
 <!DOCTYPE html>
@@ -46,8 +47,8 @@ if ($_SESSION['role'] != 1) {
         </center>
         <a href="?page=dashboard"><i class="fas fa-desktop"></i> <span>Home</span></a>
         <a href="?page=kategori"><i class="far fa-comment"></i> <span>Kategori</span></a>
-        <a href="?page=produk"><i class="fas fa-newspaper"></i> <span>Buku</span></a>
-        <a href="?page=customer"><i class="fas fa-sliders-h"></i> <span>customer</span></a>
+        <a href="?page=produk"><i class="fas fa-book"></i> <span>Buku</span></a>
+        <a href="?page=customer"><i class="fas fa-users"></i> <span>customer</span></a>
         <a href="#"><i class="fas fa-sliders-h"></i> <span>laporan</span></a>
 
     </div>

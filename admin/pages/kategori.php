@@ -1,7 +1,7 @@
 <a href="?page=tambah-kategori"> Tambah Data</a>
 <hr>
 
-<table>
+<table >
     <tr>
         <td>Nama Kategori</td>
         <td>:</td>
@@ -21,8 +21,8 @@
 
 <hr>
 
-<table id="data" border="1" cellspacing="0" cellpadding="10">
-    <thead>
+<table id="data" border="1" cellspacing="0" cellpadding="10" width="400">
+    <thead style="background-color:#5F9EA0">
         <tr>
             <th>Nama Kategori</th>
             <th>Aksi</th>

@@ -1,4 +1,5 @@
 <?php
+session_start();
 require_once 'connection/koneksi.php';
 
 if (isset($_SESSION['login'])) {
@@ -66,6 +67,7 @@ if (isset($_SESSION['login'])) {
         if (mysqli_num_rows($result) === 1) {
             $data = mysqli_fetch_assoc($result);
             if (password_verify($password, $data['password'])) {
+                $_SESSION['id'] = $data['user_id'];
                 $_SESSION['username'] = $data['username'];
                 $_SESSION['nama'] = $data['nama'];
                 $_SESSION['role'] = $data['role'];
@@ -73,7 +75,7 @@ if (isset($_SESSION['login'])) {
                 if ($data['role'] == 1) {
                     echo "<script>alert('Selamat Datang, Admin!');</script>";
                     echo "<script>window.location.replace('admin/index.php');</script>";
-                    return;
+                    exit;
                 }
                 echo "<script>alert('Berhasil Login');</script>";
                 echo "<script>window.location.replace('index.php');</script>";

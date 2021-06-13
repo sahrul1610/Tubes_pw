@@ -1,4 +1,5 @@
 <?php
+session_start();
 require_once 'connection/koneksi.php';
 ?>
 <html>
@@ -19,7 +20,7 @@ require_once 'connection/koneksi.php';
             <li><a href=''>Kategori</a></li>
             <li><a href=''>cara belanja</a></li>
             <li>
-                <?php
+            <?php
                 if (isset($_SESSION['login'])) { ?>
                     <a href="logout.php"><?= $_SESSION['nama']; ?></a>
                 <?php
@@ -46,7 +47,7 @@ require_once 'connection/koneksi.php';
                     <h1><?php echo $data['judul']; ?></h1>
                     <p>Harga <?php echo $data['harga']; ?></p>
                     <a href='produk_detail.php?produk=<?= $data['id_buku']; ?>'>Detail</a>
-                    <a href="beli.php?id_buku=<?= $data['id_buku']; ?>"> Beli </a>
+                    <!-- <a href="beli.php?id_buku=<?= $data['id_buku']; ?>"> Beli </a> -->
                 </div>
 
         <?php
