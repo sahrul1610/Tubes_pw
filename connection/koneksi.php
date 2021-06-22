@@ -1,2 +1,2 @@
 <?php
-$con_object = new mysqli("localhost", "root", "", "toko_buku_sahrul");
+$con_object = new mysqli("localhost", "root", "", "tokko_buku_sahrul");

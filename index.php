@@ -1,109 +1,69 @@
 <?php
-session_start();
-require_once 'connection/koneksi.php';
+   session_start();
+   include 'connection/koneksi.php';
 ?>
 <html>
-
 <head>
-    <title>Toko buku</title>
-    <link rel='stylesheet' href="css/index.css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
-</head>
+	<!-- Required meta tags -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
+	<!-- Bootstrap CSS -->
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+   
+
+	<title>Hello, world!</title>
+</head>
 <body>
 
-    <div class='header'>
-        <h1 class="logo">toko Buku</h1>
-        <ul class="navbar">
-            <li><a href='index.php'>Home</a></li>
-            <li><a href=''>keranjang</a></li>
-            <li><a href=''>Kategori</a></li>
-            <li><a href=''>cara belanja</a></li>
-            <li>
-            <?php
-                if (isset($_SESSION['login'])) { ?>
-                    <a href="logout.php"><?= $_SESSION['nama']; ?></a>
-                <?php
-                } else {
-                ?>
-                    <a href="login.php">Login</a>
-                <?php
-                }
-                ?>
-            </li>
-        </ul>
-    </div>
+	<nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="container">
 
-    <div class="gambar">
+         <a class="navbar-brand" href="?page=home"><i class="fa fa-book"></i> Toko Buku</a>
+         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+         </button>
 
-        <?php
-        $sql = $con_object->query("SELECT * FROM buku");
-        $rows = $sql->num_rows;
-        if ($rows > 0) {
-            while ($data = mysqli_fetch_assoc($sql)) { ?>
+         <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+               <li class="nav-item active">
+                  <a class="nav-link" href="?page=home"><i class="fa fa-home"></i> Home <span class="sr-only">(current)</span></a>
+               </li>
+               <li class="nav-item">
+                  <a class="nav-link" href="#"><i class="fa fa-shopping-cart"></i> Keranjang </a>
+               </li>
+               <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                     <i class="fa fa-bars"></i> Kategori
+                  </a>
+                  <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                     <?php $query = $con_object->query("SELECT * FROM kategori ORDER BY kategori") ?>
+                     <?php foreach ($query as $data) : ?>
+                        <a class="dropdown-item" href="#"><?php echo $data['kategori'] ?></a>
+                     <?php endforeach ?>
+                  </div>
+               </li>
+               <li class="nav-item">
+                  <a class="nav-link" href="#"><i class="fa fa-eye"></i> Login </a>
+               </li>
+               <li class="nav-item">
+                  <a class="nav-link" href="#"><i class="fa fa-edit"></i> Daftar </a>
+               </li>
+            </ul>
+         </div>
+      </div>  
+   </nav>
 
-                <div class='foto'>
-                    <div style="width: 100%;height: 200px;background-image: url('<?php echo 'admin/pages/produk/gambar/' . $data['gambar']; ?>'); background-repeat: no-repeat;background-attachment: contain;background-position: center;background-size: contain;"></div>
-                    <h1><?php echo $data['judul']; ?></h1>
-                    <p>Harga <?php echo $data['harga']; ?></p>
-                    <a href='produk_detail.php?produk=<?= $data['id_buku']; ?>'>Detail</a>
-                    <!-- <a href="beli.php?id_buku=<?= $data['id_buku']; ?>"> Beli </a> -->
-                </div>
+   <div class="container">
+      <br>
+      <?php require 'link/halaman.php' ?>
+   </div>
 
-        <?php
-            }
-        }
-        ?>
-
-</div>
-        
-    <footer class="footer-distributed">
-
-      <div class="footer-left">
-
-        <h3>Home Buku</h3>
-        
-      </div>
-
-      <div class="footer-center">
-
-        <div>
-          
-          <p><span>Jl. kujang jaya Blok dampyang Rt.06 Rw.02 Indramayu</p>
-        </div>
-
-        <div>
-          
-          <p>Telp. (0877) 123456</p>
-        </div>
-
-        <div>
-          
-          <p><a href="mailto:tokoBuku@gmail.com">TokoBuku@gmail.com</a></p>
-        </div>
-
-      </div>
-
-      <div class="footer-right">
-
-        <p class="footer-company-about">
-          <span>About the company</span>
-          Toko buku adalah salah satu toko di Indramayu yang mewarkan Berbagai macam Buku dengan harga yang terjangkau.
-        </p>
-
-        <div class="footer-icons">
-
-          <a href="#"><i class="fab fa-facebook"></i></a>
-          <a href="#"><i class="fab fa-twitter"></i></a>
-          <a href="#"><i class="fab fa-whatsapp"></i></a>
-          <a href="#"><i class="fab fa-instagram"></i></a>
-          
-
-        </div>
-
-      </div>
-
-    </footer>
+   <!-- Optional JavaScript -->
+   <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </body>
-
 </html>

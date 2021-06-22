@@ -70,7 +70,7 @@
 
             }
         };
-        xhttp.open("GET", "http://localhost/tubes_pw_new/admin/pages/ajax/get-data.php", true);
+        xhttp.open("GET", "http://localhost/Tubes_pw/admin/pages/ajax/get-data.php", true);
         xhttp.send();
     }
 
